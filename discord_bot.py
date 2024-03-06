@@ -531,8 +531,10 @@ async def stop(ctx, server_short_name):
                     color = discord.Color(0x00FF00)
                 )
                 await ctx.send(embed=embed)
+                subprocess.run(["taskkill", "/f", "/im", "Crab Game.exe"], check=True)
             else:
                 await send_error(ctx, f"Cannot stop a server that is not started!")
+                subprocess.run(["taskkill", "/f", "/im", "Crab Game.exe"], check=True)
         else:
             await send_error(ctx, f"Invalid server name! You can choose from:\n{serverShortNamesString}")
 
